@@ -3,7 +3,7 @@ import React from 'react';
 
 const Screen = ({value}) => {
   return (
-    <div className="screen" >
+    <div className="screen">
      {value}
     </div>
   );
