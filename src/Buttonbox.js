@@ -5,7 +5,7 @@ import Button from './Button';
 const Buttonbox = ({ input, setInput }) => {
   
     const [hasClickedIsEqualTo,setHasClickedIsEqualTo] = useState(false)
-  
+
     const handleButtonClick = (value) => {
         setInput((prevInput) => hasClickedIsEqualTo ? value : prevInput + value);
          console.log(`${value} clicked!`);
