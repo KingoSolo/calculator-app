@@ -5,7 +5,7 @@ import Button from './Button';
 const Buttonbox = ({ input, setInput }) => {
   
     const [hasClickedIsEqualTo,setHasClickedIsEqualTo] = useState(false)
-
+  
     const handleButtonClick = (value) => {
         setInput((prevInput) => hasClickedIsEqualTo ? value : prevInput + value);
          console.log(`${value} clicked!`);
@@ -49,13 +49,16 @@ const Buttonbox = ({ input, setInput }) => {
              <Button label="C" onClick={() => handleClear()} style={{backgroundColor :'white',color:'black'}} />
              <Button label="DEL" onClick={() => handleDelete()} style={{backgroundColor : 'white',color:'black',display:'flex',justifyContent:'center'}}/>
              <Button label="%" onClick={() => handlePercentage()} style={{backgroundColor : 'white',color:'black'}} />
+        {/* handle buttons from beginning of the array to right before the second to the last */}
           {buttonLabels.slice(0,-1).map((label) => (
             <Button key={label} label={label} onClick={() => handleButtonClick(label)} style={label.match(/[/*+-]/) ? symbolStyles : null} />
           ))}
            <Button key="0" label="0" onClick={() => handleButtonClick("0")} style={{ gridColumn: 'span 2' }} /> 
+        {/* handle last button in the array */}
            {buttonLabels.slice(-1).map((label) => (
             <Button key={label} label={label} onClick={() => handleButtonClick(label)} />
           ))}
+          
            <Button label="=" onClick={() => handleEquals('')} style={symbolStyles} />
         </div>
       )
